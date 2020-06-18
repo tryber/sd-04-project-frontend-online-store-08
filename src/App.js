@@ -1,14 +1,14 @@
-import React from "react";
-import "./App.css";
+import React from 'react';
+import './App.css';
 
-import ProductsList from "./components/ProductsList";
+import ProductsList from './components/ProductsList';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      query: "",
-      data: []
+      query: '',
+      data: [],
     };
   }
 

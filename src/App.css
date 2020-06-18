@@ -16,13 +16,13 @@
   border: 1px solid grey;
   height: 2.15em;
   transition: box-shadow 0.175s ease-in-out;
-  background: url(./imgs/search-solid.svg) no-repeat 10px 0.6em;
+  background: url('./imgs/search-solid.svg') no-repeat 10px 0.6em;
   background-size: 1.15em;
   padding-left: 35px;
   padding-right: 20px;
 }
 
-.SearchBar:focus {
+.SearchBar :focus {
   outline: none;
   box-shadow: 0 0 0.15em 0.15em lightblue;
 }
