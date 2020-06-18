@@ -1,14 +1,14 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import "./App.css";
 
-import ProductsList from './components/ProductsList';
+import ProductsList from "./components/ProductsList";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      query: '',
-      data: [],
+      query: "",
+      data: []
     };
   }
 
@@ -17,7 +17,6 @@ class App extends React.Component {
       <div className="App">
         <header className="App-header">
           <form action="">
-            <i className="fas fa-search" />
             <input
               data-testid="query-input"
               className="SearchBar"
