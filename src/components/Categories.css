@@ -1,5 +1,5 @@
 .sidebar {
-  border: 1px solid #000;
+  border: 1px solid black;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -7,10 +7,10 @@
 }
 
 .categoria {
-  background-color: #fff;
+  background-color: white;
   border: 0;
   border-bottom: 1px solid silver;
   cursor: pointer;
-  text-align: left;
   padding: 5px;
+  text-align: left;
 }
