@@ -38,7 +38,7 @@ class MainPage extends React.Component {
     const { category, query } = this.state;
     const { results } = await api.getProductsFromCategoryAndQuery(
       category,
-      query
+      query,
     );
     this.setState({ data: results });
   }
