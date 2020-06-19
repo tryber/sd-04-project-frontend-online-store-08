@@ -21,12 +21,12 @@ class MainPage extends React.Component {
       .then((categories) => this.setState({ allCategories: categories }));
   }
 
-  categoryClick = (event) => {
-    this.setState({ category: event.target.id });
-  };
-
   inputChange = (event) => {
     this.setState({ query: event.target.value });
+  };
+
+  categoryClick = (event) => {
+    this.setState({ category: event.target.id });
   };
 
   handleSubmit = async (event) => {
