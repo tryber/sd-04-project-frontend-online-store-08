@@ -1,7 +1,8 @@
 import React from 'react';
 import './MainPage.css';
 import Categories from './Categories';
-import { getProductsFromQuery } from '../services/api';
+import * as api from '../services/api';
+import SearchBar from './SearchBar';
 
 class MainPage extends React.Component {
   constructor(props) {
@@ -10,7 +11,14 @@ class MainPage extends React.Component {
       query: '',
       data: [],
       category: '',
+      allCategories: [],
     };
+  }
+
+  componentDidMount() {
+    api
+      .getCategories()
+      .then((categories) => this.setState({ allCategories: categories }));
   }
 
   categoryClick = (event) => {
@@ -23,37 +31,47 @@ class MainPage extends React.Component {
 
   handleSubmit = async (event) => {
     event.preventDefault();
-    const { query } = this.state;
-    const { results } = await getProductsFromQuery(query);
+    const { category, query } = this.state;
+    const { results } = await api.getProductsFromCategoryAndQuery(
+      category,
+      query,
+    );
     this.setState({ data: results });
   };
 
+  renderResult = () => {
+    const { query, data, category } = this.state;
+    if (!category && !query) {
+      return (
+        <p data-testid="home-initial-message">
+          Digite algum termo de pesquisa ou escolha uma categoria.
+        </p>
+      );
+    }
+    if (data.length === 0) {
+      return (
+        <p data-testid="home-initial-message">
+          Não foi possível encontrar nenhum produto.
+        </p>
+      );
+    }
+    return data.map(({ id, title }) => (
+      <li data-testid="product" key={id}>
+        {title}
+      </li>
+    ));
+  };
+
   render() {
-    const { query, data } = this.state;
+    const { query, allCategories } = this.state;
     return (
       <section className="container">
         <aside className="Cat-item">
-          <Categories onClick={this.categoryClick} />
+          <Categories onClick={this.categoryClick} allCats={allCategories} />
         </aside>
         <article className="Prod-item">
-          <form onSubmit={this.handleSubmit}>
-            <input
-              data-testid="query-input"
-              className="SearchBar"
-              type="text"
-              value={query}
-              onChange={this.inputChange}
-            />
-            <button type="submit" className="btnSearch">
-              Pesquisar
-            </button>
-          </form>
-          <p data-testid="home-initial-message">
-            Digite algum termo de pesquisa ou escolha uma categoria.
-          </p>
-          {data.map(({ id, title }) => (
-            <li key={id}>{title}</li>
-          ))}
+          <SearchBar oS={this.handleSubmit} v={query} oC={this.inputChange} />
+          {this.renderResult()}
         </article>
       </section>
     );

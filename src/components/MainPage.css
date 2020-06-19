@@ -4,29 +4,24 @@
   border: 1px solid lightgray;
   height: 2.45em;
   margin-left: 5px;
+  outline: none;
   padding: 0 15px;
 }
 
 .btnSearch:hover {
   box-shadow: 0 0 0.15em 0.15em lightblue;
-  outline: none;
   transition: box-shadow 0.175s ease-in-out;
 }
 
 .btnSearch:active {
   box-shadow: 0 0 0.15em 0.15em rgb(173, 191, 230);
-  outline: none;
   transition: box-shadow;
-}
-
-.btnSearch:focus {
-  outline: none;
 }
 
 .Cat-item {
   flex: 1;
-  max-width: 300px;
   margin: 0 10px 10px;
+  max-width: 300px;
 }
 
 .container {
