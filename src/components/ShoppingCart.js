@@ -24,7 +24,7 @@ class ShoppingCart extends Component {
         </div>
       );
     }
-    return <div>Componentes do carrinho</div>
+    return <div>Componentes do carrinho</div>;
   }
 }
 
