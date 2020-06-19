@@ -13,6 +13,16 @@
   transition: box-shadow 0.175s ease-in-out;
 }
 
+.btnSearch:active {
+  box-shadow: 0 0 0.15em 0.15em rgb(173, 191, 230);
+  outline: none;
+  transition: box-shadow;
+}
+
+.btnSearch:focus {
+  outline: none;
+}
+
 .Cat-item {
   flex: 1;
   max-width: 300px;

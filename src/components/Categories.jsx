@@ -23,18 +23,18 @@ class Categories extends Component {
     return (
       <div className="sidebar">
         <h4>Categories</h4>
-        {categories.map((category) => (
-          <label htmlFor={category.name}>
+        {categories.map(({ name, id }) => (
+          <label htmlFor={name}>
             <input
               type="radio"
               className="categoria"
               data-testid="category"
-              key={category.id}
-              id={category.name}
+              key={id}
+              id={name}
               name="category"
               onClick={(event) => onClick(event)}
             />
-            {category.name}
+            {name}
           </label>
         ))}
       </div>

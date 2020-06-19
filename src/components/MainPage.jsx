@@ -1,6 +1,7 @@
 import React from 'react';
 import './MainPage.css';
 import Categories from './Categories';
+import { getProductsFromQuery } from '../services/api';
 
 class MainPage extends React.Component {
   constructor(props) {
@@ -8,39 +9,51 @@ class MainPage extends React.Component {
     this.state = {
       query: '',
       data: [],
-      categorySelected: '',
+      category: '',
     };
   }
 
   categoryClick = (event) => {
-    this.setState({ categorySelected: event.target.id });
-    console.log(event.target.id);
+    this.setState({ category: event.target.id });
+  };
+
+  inputChange = (event) => {
+    this.setState({ query: event.target.value });
+  };
+
+  handleSubmit = async (event) => {
+    event.preventDefault();
+    const { query } = this.state;
+    const { results } = await getProductsFromQuery(query);
+    this.setState({ data: results });
   };
 
   render() {
+    const { query, data } = this.state;
     return (
       <section className="container">
         <aside className="Cat-item">
           <Categories onClick={this.categoryClick} />
         </aside>
         <article className="Prod-item">
-          <form action="">
+          <form onSubmit={this.handleSubmit}>
             <input
               data-testid="query-input"
               className="SearchBar"
               type="text"
+              value={query}
+              onChange={this.inputChange}
             />
-            <button type="button" className="btnSearch">
+            <button type="submit" className="btnSearch">
               Pesquisar
             </button>
           </form>
           <p data-testid="home-initial-message">
             Digite algum termo de pesquisa ou escolha uma categoria.
           </p>
-          <div className="container">
-            <p>Hello</p>
-            <p>Goodbye!</p>
-          </div>
+          {data.map(({ id, title }) => (
+            <li key={id}>{title}</li>
+          ))}
         </article>
       </section>
     );
