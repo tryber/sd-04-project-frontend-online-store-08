@@ -13,6 +13,10 @@ class MainPage extends React.Component {
       category: '',
       allCategories: [],
     };
+    this.inputChange = this.inputChange.bind(this);
+    this.categoryClick = this.categoryClick.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.renderResult = this.renderResult.bind(this);
   }
 
   componentDidMount() {
@@ -21,15 +25,15 @@ class MainPage extends React.Component {
       .then((categories) => this.setState({ allCategories: categories }));
   }
 
-  inputChange = (event) => {
+  inputChange(event) {
     this.setState({ query: event.target.value });
-  };
+  }
 
-  categoryClick = (event) => {
+  categoryClick(event) {
     this.setState({ category: event.target.id });
-  };
+  }
 
-  handleSubmit = async (event) => {
+  async handleSubmit(event) {
     event.preventDefault();
     const { category, query } = this.state;
     const { results } = await api.getProductsFromCategoryAndQuery(
@@ -37,9 +41,9 @@ class MainPage extends React.Component {
       query
     );
     this.setState({ data: results });
-  };
+  }
 
-  renderResult = () => {
+  renderResult() {
     const { query, data, category } = this.state;
     if (!category && !query) {
       return (
@@ -60,7 +64,7 @@ class MainPage extends React.Component {
         {title}
       </li>
     ));
-  };
+  }
 
   render() {
     const { query, allCategories } = this.state;
