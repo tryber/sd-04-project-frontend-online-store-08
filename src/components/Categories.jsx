@@ -19,19 +19,23 @@ class Categories extends Component {
 
   render() {
     const { categories } = this.state;
+    const { onClick } = this.props;
     return (
       <div className="sidebar">
         <h4>Categories</h4>
         {categories.map((category) => (
-          <button
-            type="button"
-            className="categoria"
-            data-testid="category"
-            key={category.id}
-            onClick="função para selecionar a categoria"
-          >
+          <label htmlFor={category.name}>
+            <input
+              type="radio"
+              className="categoria"
+              data-testid="category"
+              key={category.id}
+              id={category.name}
+              name="category"
+              onClick={(event) => onClick(event)}
+            />
             {category.name}
-          </button>
+          </label>
         ))}
       </div>
     );
