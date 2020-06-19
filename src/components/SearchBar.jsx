@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function SearchBar({ oS, v, oC }) {
   return (
-    <form onSubmit={oS}>
+    <form>
       <input
         data-testid="query-input"
         className="SearchBar"
@@ -10,7 +10,12 @@ export default function SearchBar({ oS, v, oC }) {
         value={v}
         onChange={oC}
       />
-      <button type="submit" className="btnSearch">
+      <button
+        type="submit"
+        className="btnSearch"
+        data-testid="query-button"
+        onClick={oS}
+      >
         Pesquisar
       </button>
     </form>
