@@ -1,0 +1,54 @@
+.btnSearch {
+  background: white;
+  border: 1px solid lightgray;
+  border-radius: 2.15em;
+  height: 2.45em;
+  margin-left: 5px;
+  padding: 0 15px;
+}
+
+.btnSearch:hover {
+  box-shadow: 0 0 0.15em 0.15em lightblue;
+  transition: box-shadow 0.175s ease-in-out;
+}
+
+.btnSearch:active {
+  box-shadow: 0 0 0.15em 0.15em rgb(173, 191, 230);
+  transition: box-shadow;
+}
+
+.Cat-item {
+  flex: 1;
+  margin: 0 10px 10px;
+  max-width: 300px;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+.Prod-item {
+  flex: 1;
+  margin: 0 10px 10px 0;
+}
+
+.SearchBar {
+  background-image: url('../imgs/search-solid.svg');
+  background-position: 10px 0.6em;
+  background-repeat: no-repeat;
+  background-size: 1.15em;
+  border: 1px solid lightgray;
+  border-radius: 2.15em;
+  height: 2.15em;
+  margin-bottom: 10px;
+  padding-left: 35px;
+  padding-right: 20px;
+  transition: box-shadow 0.175s ease-in-out;
+  width: 750px;
+}
+
+.SearchBar:focus {
+  box-shadow: 0 0 0.15em 0.15em lightblue;
+  outline: none;
+}
