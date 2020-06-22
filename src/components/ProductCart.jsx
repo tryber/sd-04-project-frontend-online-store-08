@@ -21,12 +21,17 @@ class ProductCart extends Component {
 
   render() {
     const { quantity } = this.state;
-    const { item } = this.props;
-    const { title, price, thumbnail } = item;
+    const { products } = this.props;
+    const { title, price, thumbnail } = products;
     return (
       <div className="product-cart">
         <img src={thumbnail} alt={title} height="90px" />
-        <p className="product-cart-title" data-testid="shopping-cart-product-name">{title}</p>
+        <p
+          className="product-cart-title"
+          data-testid="shopping-cart-product-name"
+        >
+          {title}
+        </p>
         <div className="product-cart-quantity">
           <button type="button" onClick={() => this.minusQuantity()}>
             -
@@ -37,6 +42,9 @@ class ProductCart extends Component {
           </button>
         </div>
         <p>{(price * quantity).toFixed(2)}</p>
+        <button type="button">
+          X
+        </button>
       </div>
     );
   }

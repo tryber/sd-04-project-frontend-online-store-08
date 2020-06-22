@@ -13,7 +13,6 @@ function App() {
       <MainPage />
       <footer>
         <h5>Footer</h5>
-        {/* <ProductCart /> */}
         <ShoppingCart />
       </footer>
     </div>

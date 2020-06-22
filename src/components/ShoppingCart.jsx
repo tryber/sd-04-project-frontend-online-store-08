@@ -1,30 +1,37 @@
 import React, { Component } from 'react';
 import ProductCart from './ProductCart';
+import Empty from './Empty';
 import data from './testing';
 
 class ShoppingCart extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { products: data };
+    this.state = {
+      products: data,
+      totalPrice: 0,
+    };
   }
 
   render() {
-    const { products } = this.state;
+    const { products, totalPrice } = this.state;
     if (products.length === 0) {
-      return (
-        <div className="shopping-cart">
-          <span>Voltar</span>
-          <div className="shopping-cart-container">
-            <p data-testid="shopping-cart-button">Shopping Cart</p>
-            <p data-testid="shopping-cart-empty-message">
-              Seu carrinho está vazio
-            </p>
-          </div>
-        </div>
-      );
+      return <Empty />;
     }
-    return products.map((item) => <ProductCart item={item} />);
+    return (
+      <div>
+        <h3>Shopping Cart</h3>
+        {products.map((item) => (
+          <div key={item.id}>
+            <ProductCart products={item} />
+          </div>
+        ))}
+        <p>{`Valor total: ${totalPrice}`}</p>
+        <button type="button" data-testid="checkout-products">
+          Checkout
+        </button>
+      </div>
+    );
   }
 }
 
