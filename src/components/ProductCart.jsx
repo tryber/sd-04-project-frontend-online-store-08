@@ -33,11 +33,11 @@ class ProductCart extends Component {
           {title}
         </p>
         <div className="product-cart-quantity">
-          <button type="button" onClick={() => this.minusQuantity()}>
+          <button data-testid="product-decrease-quantity" type="button" onClick={() => this.minusQuantity()}>
             -
           </button>
           <p data-testid="shopping-cart-product-quantity">{quantity}</p>
-          <button type="button" onClick={() => this.plusQuantity()}>
+          <button data-testid="product-increase-quantity" type="button" onClick={() => this.plusQuantity()}>
             +
           </button>
         </div>

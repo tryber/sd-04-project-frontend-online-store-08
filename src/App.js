@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import MainPage from './components/MainPage';
-// import ProductCart from './components/ProductCart';
 import ShoppingCart from './components/ShoppingCart';
 
 function App() {
@@ -9,6 +8,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>Online Store</h1>
+        <div datatestid="shopping-cart-button">**Icone do carrinho**</div>
       </header>
       <MainPage />
       <footer>

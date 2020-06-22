@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import ProductCart from './ProductCart';
 import Empty from './Empty';
-import data from './testing';
 
 class ShoppingCart extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      products: data,
+      products: [],
       totalPrice: 0,
     };
   }
