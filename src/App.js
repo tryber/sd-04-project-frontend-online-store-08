@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
 import MainPage from './components/MainPage';
+// import ProductCart from './components/ProductCart';
+import ShoppingCart from './components/ShoppingCart';
 
 function App() {
   return (
@@ -11,6 +13,8 @@ function App() {
       <MainPage />
       <footer>
         <h5>Footer</h5>
+        {/* <ProductCart /> */}
+        <ShoppingCart />
       </footer>
     </div>
   );
