@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import * as api from '../services/api';
-import Categories from '../components/Categories';
-import SearchBar from '../components/SearchBar';
+import { Categories, SearchBar } from '../components';
 import '../styles/MainPage.css';
 
 class MainPage extends Component {
