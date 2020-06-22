@@ -1,10 +1,10 @@
-import React from 'react';
-import './MainPage.css';
-import Categories from './Categories';
+import React, { Component } from 'react';
 import * as api from '../services/api';
-import SearchBar from './SearchBar';
+import Categories from '../components/Categories';
+import SearchBar from '../components/SearchBar';
+import '../styles/MainPage.css';
 
-class MainPage extends React.Component {
+class MainPage extends Component {
   constructor(props) {
     super(props);
     this.state = {

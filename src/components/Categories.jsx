@@ -1,5 +1,5 @@
 import React from 'react';
-import './Categories.css';
+import '../styles/Categories.css';
 // importando as funções da API como api
 
 function Categories(props) {
