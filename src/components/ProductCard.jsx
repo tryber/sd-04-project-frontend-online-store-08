@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './ProductCard.css';
+import '../styles/ProductCard.css';
 
 function ProductCard(props) {
   const { product: { title, price, thumbnail, id } } = props;
