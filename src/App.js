@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>Online Store</h1>
-        <div datatestid="shopping-cart-button">**Icone do carrinho**</div>
+        <div datatestid="shopping-cart-button">*Icone do carrinho*</div>
       </header>
       <MainPage />
       <footer>
