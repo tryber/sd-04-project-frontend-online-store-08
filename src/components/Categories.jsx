@@ -8,7 +8,7 @@ function Categories(props) {
     <div className="sidebar">
       <h4>Categories</h4>
       {allCats.map(({ name, id }) => (
-        <label htmlFor={name}>
+        <label htmlFor={name} key={id}>
           <input
             type="radio"
             className="categoria"

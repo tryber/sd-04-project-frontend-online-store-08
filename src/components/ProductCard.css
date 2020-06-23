@@ -1,0 +1,11 @@
+.Card {
+  align-items: center;
+  border: 1px solid lightgrey;
+  border-radius: 2.15em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 7px;
+  padding: 10px;
+  width: 180px;
+}

@@ -3,6 +3,7 @@ import './MainPage.css';
 import Categories from './Categories';
 import * as api from '../services/api';
 import SearchBar from './SearchBar';
+import ProductCard from './ProductCard';
 
 class MainPage extends React.Component {
   constructor(props) {
@@ -59,10 +60,8 @@ class MainPage extends React.Component {
         </p>
       );
     }
-    return data.map(({ id, title }) => (
-      <li data-testid="product" key={id}>
-        {title}
-      </li>
+    return data.map((product) => (
+      <ProductCard key={product.id} product={product} />
     ));
   }
 
