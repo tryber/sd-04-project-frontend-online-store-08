@@ -12,7 +12,7 @@ class ProductCard extends Component {
         </div>
         <div>
           <img src={thumbnail} alt={id} className="Image" />
-          <p>{`Preço: ${price}`}</p>
+          <p>{`Preço: ${price.toFixed(2)}`}</p>
         </div>
         <div className="Link" data-testid="product-add-to-cart">
           <button type="button">COMPRAR</button>
