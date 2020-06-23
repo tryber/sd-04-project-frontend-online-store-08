@@ -11,9 +11,14 @@ class ProductDetail extends Component {
       price: '',
       success: false,
     };
+    this.setProduct = this.setProduct.bind(this);
   }
 
   componentDidMount() {
+    this.setProduct();
+  }
+
+  setProduct() {
     const { location: { state: { title, thumbnail, price } } } = this.props;
     this.setState({ title, thumbnail, price, success: true });
   }

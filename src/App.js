@@ -1,7 +1,8 @@
-import React from 'react';
-import './styles/App.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import React from 'react';
 import { MainPage, ProductDetail } from './pages';
+import './styles/App.css';
+
 
 function App() {
   return (
