@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import * as api from '../services/api';
-import { Categories, SearchBar } from '../components';
+import { Categories, SearchBar, ProductCard } from '../components';
 import '../styles/MainPage.css';
 
 class MainPage extends Component {
@@ -15,7 +15,7 @@ class MainPage extends Component {
     this.inputChange = this.inputChange.bind(this);
     this.categoryClick = this.categoryClick.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.renderResult = this.renderResult.bind(this);
+    this.renderResult = this.renderResultSearchBar.bind(this);
   }
 
   componentDidMount() {
@@ -24,12 +24,24 @@ class MainPage extends Component {
       .then((categories) => this.setState({ allCategories: categories }));
   }
 
+  shouldComponentUpdate() {
+    console.log('ok');
+
+    return true;
+  }
+
   inputChange(event) {
     this.setState({ query: event.target.value });
   }
 
-  categoryClick(event) {
+  async categoryClick(event) {
     this.setState({ category: event.target.id });
+    const { category, query } = this.state;
+    const { results } = await api.getProductsFromCategoryAndQuery(
+      category,
+      query,
+    );
+    this.setState({ data: results });
   }
 
   async handleSubmit(event) {
@@ -42,7 +54,7 @@ class MainPage extends Component {
     this.setState({ data: results });
   }
 
-  renderResult() {
+  renderResultSearchBar() {
     const { query, data, category } = this.state;
     if (!category && !query) {
       return (
@@ -58,10 +70,8 @@ class MainPage extends Component {
         </p>
       );
     }
-    return data.map(({ id, title }) => (
-      <li data-testid="product" key={id}>
-        {title}
-      </li>
+    return data.map((product) => (
+      <ProductCard data-testid="product" key={product.id} product={product} />
     ));
   }
 
@@ -74,7 +84,7 @@ class MainPage extends Component {
         </aside>
         <article className="Prod-item">
           <SearchBar oS={this.handleSubmit} v={query} oC={this.inputChange} />
-          {this.renderResult()}
+          {this.renderResultSearchBar()}
         </article>
       </section>
     );

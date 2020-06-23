@@ -1,34 +1,34 @@
 import React, { Component } from 'react';
 import '../styles/MainPage.css';
-import * as api from '../services/api';
 import Loading from '../components/Loading';
 
 class ProductDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      product: {},
+      title: '',
+      thumbnail: '',
+      price: '',
       success: false,
     };
   }
 
   componentDidMount() {
-    const {
-      match: {
-        params: { id },
-      },
-    } = this.props;
-    api.getProductFromID(id).then((product) => {
-      this.setState({ product, success: true });
-    });
+    const { location: { state: { title, thumbnail, price } } } = this.props;
+    this.setState({ title, thumbnail, price, success: true });
   }
 
   render() {
-    const { product, success } = this.state;
+    const { title, thumbnail, price, success } = this.state;
     if (!success) return <Loading />;
     return (
       <section className="container">
-        <div className="item">TESTE</div>
+        <div className="item" data-testid="product-detail-name">{title}</div>
+        <img src={thumbnail} alt="" />
+        <div className="item">
+          R$
+          {price}
+        </div>
       </section>
     );
   }
