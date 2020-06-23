@@ -1,7 +1,8 @@
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import React from 'react';
-import './App.css';
-import MainPage from './components/MainPage';
-import ShoppingCart from './components/ShoppingCart';
+import { MainPage, ProductDetail, ShoppingCart } from './pages';
+import './styles/App.css';
+
 
 function App() {
   return (
@@ -10,7 +11,12 @@ function App() {
         <h1>Online Store</h1>
         <div datatestid="shopping-cart-button">*Icone do carrinho*</div>
       </header>
-      <MainPage />
+      <BrowserRouter>
+        <Switch>
+          <Route path="/item/:id" component={ProductDetail} />
+          <Route exact path="/" component={MainPage} />
+        </Switch>
+      </BrowserRouter>
       <footer>
         <h5>Footer</h5>
         <ShoppingCart />

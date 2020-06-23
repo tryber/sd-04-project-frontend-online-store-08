@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import ProductCart from './ProductCart';
-import Empty from './Empty';
+import { ProductCart, Empty } from '../components';
 
 class ShoppingCart extends Component {
   constructor(props) {
