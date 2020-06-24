@@ -15,11 +15,20 @@ class Checkout extends Component {
       address: '',
       payment: '',
     };
+
+    this.handlerChange = this.handlerChange.bind(this);
   }
+
+  handlerChange(event) {
+    this.setState({ [event.target.name]: event.target.value });
+    console.log('usando');
+  }
+
   render() {
+    const { fullname } = this.state;
     return (
       <div>
-        <FormCheckout />
+        <FormCheckout handler={this.handlerChange} value={fullname} />
         <Payment />
       </div>
     );
