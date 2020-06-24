@@ -2,11 +2,7 @@ import React, { Component } from 'react';
 
 class Payment extends Component {
   render() {
-    return (
-      <div>
-        Hello from Payment
-      </div>
-    );
+    return <div>Hello from Payment</div>;
   }
 }
 

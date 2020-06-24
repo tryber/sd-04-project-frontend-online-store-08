@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../styles/FormCheckout.css';
 
-const createInput = (label, name, value, testid, callback) => {
+function createInput(label, name, value, testid, callback) {
   return (
     <label htmlFor={name}>
       {label}
@@ -15,7 +15,7 @@ const createInput = (label, name, value, testid, callback) => {
       />
     </label>
   );
-};
+}
 
 class FormCheckout extends Component {
   render() {
