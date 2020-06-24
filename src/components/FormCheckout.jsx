@@ -1,37 +1,34 @@
 import React, { Component } from 'react';
 import '../styles/FormCheckout.css';
 
-class FormCheckout extends Component {
+const createInput = (label, name, value, testid, callback) => {
+  return (
+    <label htmlFor={name}>
+      {label}
+      <input
+        type="text"
+        data-testid={testid}
+        value={value}
+        name={name}
+        className="input"
+        onChange={callback}
+      />
+    </label>
+  );
+};
 
+class FormCheckout extends Component {
   render() {
-    const { handler, fullname } = this.props;
+    const { handler, fullname, email, cpf, phone, cep, address } = this.props;
     return (
       <form className="form-checkout">
         <h4>Informações do Comprador</h4>
-        <label htmlFor="name">
-          Nome
-          <input className="field" type="text" data-testid="checkout-fullname" name="fullname" value={fullname} onChange={(e) => handler(e)} />
-        </label>
-        <label htmlFor="email">
-          Email
-          <input className="field" type="text" data-testid="checkout-email" name="email" value="" onChange={(e) => handler(e)} />
-        </label>
-        <label htmlFor="cpf">
-          CPF
-          <input className="field" type="text" data-testid="checkout-cpf" name="cpf" value="" onChange={(e) => handler(e)} />
-        </label>
-        <label htmlFor="telefone">
-          Telefone
-          <input className="field" type="text" data-testid="checkout-phone" name="telefone" value="" onChange={(e) => handler(e)} />
-        </label>
-        <label htmlFor="cep">
-          CEP
-          <input className="field" type="text" data-testid="checkout-cep" name="cep" value="" onChange={(e) => handler(e)} />
-        </label>
-        <label htmlFor="endereco">
-          Endereço
-          <input className="field" type="text" data-testid="checkout-address" name="endereco" value="" onChange={(e) => handler(e)} />
-        </label>
+        {createInput('Nome', 'fullname', fullname, 'checkout-fullname', handler)}
+        {createInput('Email', 'email', email, 'checkout-email', handler)}
+        {createInput('CPF', 'cpf', cpf, 'checkout-cpf', handler)}
+        {createInput('Telefone', 'phone', phone, 'checkout-phone', handler)}
+        {createInput('CEP', 'cep', cep, 'checkout-cep', handler)}
+        {createInput('Endereço', 'address', address, 'checkout-address', handler)}
       </form>
     );
   }
