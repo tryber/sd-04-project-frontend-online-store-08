@@ -3,23 +3,24 @@ import '../styles/Payment.css';
 
 class Payment extends Component {
   render() {
+    const { handler } = this.props;
     return (
       <form className="form-payment">
         <h4>Método de Pagamento</h4>
-        <label htmlFor="boleto">
-          <input type="radio" name="boleto" value="boleto" />
+        <label htmlFor="payment">
+          <input type="radio" name="payment" onChange={handler} />
           Boleto
         </label>
-        <label htmlFor="visa">
-          <input type="radio" name="visa" value="visa" />
+        <label htmlFor="payment">
+          <input type="radio" name="payment" onChange={handler} />
           Cartão Crédito Visa
         </label>
-        <label htmlFor="visa">
-          <input type="radio" name="master" value="master" />
+        <label htmlFor="payment">
+          <input type="radio" name="payment" onChange={handler} />
           Cartão Crédito MasterCard
         </label>
-        <label htmlFor="visa">
-          <input type="radio" name="elo" value="elo" />
+        <label htmlFor="payment">
+          <input type="radio" name="payment" onChange={handler} />
           Cartão Crédito Elo
         </label>
       </form>

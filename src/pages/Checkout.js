@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import FormCheckout from '../components/FormCheckout';
 import Payment from '../components/Payment';
+import ProductCart from '../components/ProductCart';
 
 class Checkout extends Component {
   constructor(props) {
@@ -13,7 +15,6 @@ class Checkout extends Component {
       phone: '',
       cep: '',
       address: '',
-      payment: '',
     };
 
     this.handlerChange = this.handlerChange.bind(this);
@@ -21,13 +22,13 @@ class Checkout extends Component {
 
   handlerChange(event) {
     this.setState({ [event.target.name]: event.target.value });
-    console.log('usando');
   }
 
   render() {
     const { fullname, email, cpf, phone, cep, address } = this.state;
     return (
       <div>
+        <div>PRODUTOS</div>
         <FormCheckout
           handler={this.handlerChange}
           fullname={fullname}
@@ -37,7 +38,13 @@ class Checkout extends Component {
           cep={cep}
           address={address}
         />
-        <Payment />
+        <Payment handler={this.handlerChange} />
+        <Link to="/">
+          <button type="button">VOLTAR</button>
+        </Link>
+        <Link to="/checkout">
+          <button type="button">FINALIZAR</button>
+        </Link>
       </div>
     );
   }
