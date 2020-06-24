@@ -23,12 +23,24 @@ class FormCheckout extends Component {
     return (
       <form className="form-checkout">
         <h4>Informações do Comprador</h4>
-        {createInput('Nome', 'fullname', fullname, 'checkout-fullname', handler)}
+        {createInput(
+          'Nome',
+          'fullname',
+          fullname,
+          'checkout-fullname',
+          handler,
+        )}
         {createInput('Email', 'email', email, 'checkout-email', handler)}
         {createInput('CPF', 'cpf', cpf, 'checkout-cpf', handler)}
         {createInput('Telefone', 'phone', phone, 'checkout-phone', handler)}
         {createInput('CEP', 'cep', cep, 'checkout-cep', handler)}
-        {createInput('Endereço', 'address', address, 'checkout-address', handler)}
+        {createInput(
+          'Endereço',
+          'address',
+          address,
+          'checkout-address',
+          handler,
+        )}
       </form>
     );
   }
