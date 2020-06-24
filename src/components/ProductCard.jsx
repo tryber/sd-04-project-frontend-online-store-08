@@ -13,8 +13,8 @@ function ProductCard(props) {
         <img src={thumbnail} alt={title} className="Image" />
         <p>{`Preço: ${price.toFixed(2)}`}</p>
       </div>
-      <div className="Link" data-testid="product-add-to-cart">
-        <button type="button">COMPRAR</button>
+      <div className="Link">
+        <button type="button" data-testid="product-add-to-cart">COMPRAR</button>
       </div>
       <div className="Link">
         <Link to={{ pathname: `/item/${id}`, state: { title, thumbnail, price } }} data-testid="product-detail-link">
