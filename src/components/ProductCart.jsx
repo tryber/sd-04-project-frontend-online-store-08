@@ -45,9 +45,7 @@ class ProductCart extends Component {
   render() {
     const { quantity } = this.state;
     const { products } = this.props;
-    const {
-      product: { title, price, thumbnail, id },
-    } = products;
+    const { product: { title, price, thumbnail, id } } = products;
     return (
       <div className="product-cart">
         <img src={thumbnail} alt={id} height="90px" />
