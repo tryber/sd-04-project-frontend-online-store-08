@@ -39,7 +39,7 @@ class ProductDetail extends Component {
         <div data-testid="product-detail-add-to-cart">
           <AddToCart product={this.props.location.state} />
         </div>
-        <Link to="/cart">
+        <Link exact to="/cart">
           <img data-testid="shopping-cart-button" src={logo} alt="cart" height={40} />
         </Link>
       </section>
