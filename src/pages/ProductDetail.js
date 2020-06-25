@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/MainPage.css';
 import Loading from '../components/Loading';
-import AddToCart from '../components/AddToCart';
+import AddToCartDetail from '../components/AddToCartDetail';
 import logo from '../imgs/logo.svg';
 
 class ProductDetail extends Component {
@@ -36,10 +36,10 @@ class ProductDetail extends Component {
           {product.price}
         </div>
         <input type="text" data-testid="product-detail-evaluation" />
-        <div data-testid="product-detail-add-to-cart">
-          <AddToCart product={product} />
+        <div>
+          <AddToCartDetail product={product} />
         </div>
-        <Link exact to="/cart">
+        <Link to="/cart">
           <img data-testid="shopping-cart-button" src={logo} alt="cart" height={40} />
         </Link>
       </section>

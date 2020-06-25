@@ -5,17 +5,25 @@ import { ProductCart, Empty } from '../components';
 class ShoppingCart extends Component {
   constructor(props) {
     super(props);
-
-    const storageProducts = JSON.parse(localStorage.getItem('item'));
     this.state = {
-      products: storageProducts,
+      products: '',
       totalPrice: 0,
     };
+    this.setProducts = this.setProducts.bind(this);
+  }
+
+  componentDidMount() {
+    this.setProducts();
+  }
+
+  async setProducts() {
+    const storageProducts = await JSON.parse(localStorage.getItem('item'));
+    this.setState({ products: storageProducts });
   }
 
   render() {
     const { products, totalPrice } = this.state;
-    if (products && products.length !== 0) {
+    if (products.length !== 0) {
       return (
         <div>
           <h3>Shopping Cart</h3>
