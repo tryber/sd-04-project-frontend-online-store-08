@@ -17,7 +17,9 @@ const ProductCard = (props) => {
       </div>
       <div className="Link">
         {/* <button type="button" data-testid="product-add-to-cart">COMPRAR</button> */}
-        <AddToCart product={props} />
+        <div>
+          <AddToCart product={props} />
+        </div>
       </div>
       <div className="Link">
         <Link

@@ -21,8 +21,8 @@ class ShoppingCart extends Component {
         <div>
           <h3>Shopping Cart</h3>
           {products.map((item) => (
-            <div>
-              <ProductCart key={item.product.id} products={item} />
+            <div key={item.product.id}>
+              <ProductCart products={item} />
             </div>
           ))}
           <p>{`Valor total: ${totalPrice}`}</p>
