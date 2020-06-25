@@ -5,6 +5,7 @@ import '../styles/ProductCard.css';
 
 const ProductCard = (props) => {
   const { product: { title, price, thumbnail, id } } = props;
+  const { product } = props;
   return (
     <div className="Card" data-testid="product">
       <div className="Title">
@@ -20,7 +21,7 @@ const ProductCard = (props) => {
       </div>
       <div className="Link">
         <Link
-          to={{ pathname: `/item/${id}`, state: { title, thumbnail, price } }}
+          to={{ pathname: `/item/${id}`, state: { product } }} // obj { location: {pathname: /item/${id}, state: {product: {title: "mtorola", id:"mbl"}}}}
           data-testid="product-detail-link"
         >
           Detalhes
