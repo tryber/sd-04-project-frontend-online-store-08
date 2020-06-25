@@ -40,7 +40,7 @@ class ProductDetail extends Component {
           <AddToCartDetail product={product} />
         </div>
         <Link to="/cart">
-          <img data-testid="shopping-cart-button" src={logo} alt="cart" height={40} />
+          <img data-testid="shopping-cart-button" src={logo} alt="something" height={40} />
         </Link>
       </section>
     );
