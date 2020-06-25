@@ -6,9 +6,7 @@ class ProductDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: '',
-      thumbnail: '',
-      price: '',
+      product: '',
       success: false,
     };
     this.setProduct = this.setProduct.bind(this);
@@ -19,12 +17,12 @@ class ProductDetail extends Component {
   }
 
   setProduct() {
-    const { location: { state: { title, thumbnail, price } } } = this.props;
-    this.setState({ title, thumbnail, price, success: true });
+    const { location: { state: { product } } } = this.props;
+    this.setState({ product, success: true });
   }
 
   render() {
-    const { title, thumbnail, price, success } = this.state;
+    const { product: { thumbnail, title, price }, success } = this.state;
     if (!success) return <Loading />;
     return (
       <section className="container">
