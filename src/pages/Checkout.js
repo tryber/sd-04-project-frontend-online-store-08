@@ -27,7 +27,7 @@ class Checkout extends Component {
     const { fullname, email, cpf, phone, cep, address } = this.state;
     return (
       <div>
-        <div>PRODUTOS</div>
+        <div>.PRODUTOS.</div>
         <FormCheckout
           handler={this.handlerChange}
           fullname={fullname}
