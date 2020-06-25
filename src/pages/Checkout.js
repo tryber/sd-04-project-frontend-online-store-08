@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import FormCheckout from '../components/FormCheckout';
 import Payment from '../components/Payment';
-import ProductCart from '../components/ProductCart';
 
 class Checkout extends Component {
   constructor(props) {

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import * as api from '../services/api';
 import { Categories, SearchBar, ProductCard } from '../components';
+import logo from '../imgs/logo.svg';
 import '../styles/MainPage.css';
 
 class MainPage extends Component {
@@ -71,7 +73,7 @@ class MainPage extends Component {
       );
     }
     return data.map((product) => (
-      <ProductCard data-testid="product" key={product.id} product={product} />
+      <ProductCard key={product.id} product={product} />
     ));
   }
 
@@ -86,6 +88,9 @@ class MainPage extends Component {
           <SearchBar oS={this.handleSubmit} v={query} oC={this.inputChange} />
           {this.renderResultSearchBar()}
         </article>
+        <Link to="/cart">
+          <img data-testid="shopping-cart-button" src={logo} alt="cart" height={40} />
+        </Link>
       </section>
     );
   }

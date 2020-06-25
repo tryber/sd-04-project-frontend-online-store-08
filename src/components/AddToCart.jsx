@@ -9,7 +9,6 @@ class Storage extends React.Component {
 
   addItems() {
     const { product } = this.props;
-    console.log(product);
     if (localStorage.getItem('item')) {
       const itens = JSON.parse(localStorage.getItem('item'));
       const upStorage = localStorage.setItem(
@@ -24,7 +23,11 @@ class Storage extends React.Component {
 
   render() {
     return (
-      <button type="button" data-testid="product-add-to-cart" onClick={this.addItems}>
+      <button
+        type="button"
+        data-testid="product-add-to-cart"
+        onClick={this.addItems}
+      >
         Adicionar ao carrinho
       </button>
     );

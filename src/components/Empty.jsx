@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Empty extends Component {
   render() {
     return (
       <div className="shopping-cart">
-        <span>Voltar</span>
+        <Link to="/">
+          <span>Voltar</span>
+        </Link>
         <div className="shopping-cart-container">
           <p data-testid="shopping-cart-button">Shopping Cart</p>
           <p data-testid="shopping-cart-empty-message">
