@@ -7,7 +7,6 @@ class ShoppingCart extends Component {
     super(props);
 
     const storageProducts = JSON.parse(localStorage.getItem('item'));
-    console.log();
     this.state = {
       products: storageProducts,
       totalPrice: 0,
@@ -21,8 +20,8 @@ class ShoppingCart extends Component {
         <div>
           <h3>Shopping Cart</h3>
           {products.map((item) => (
-            <div>
-              <ProductCart key={item.product.id} products={item} />
+            <div key={item.id}>
+              <ProductCart products={item} />
             </div>
           ))}
           <p>{`Valor total: ${totalPrice}`}</p>
