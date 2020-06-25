@@ -34,6 +34,7 @@ class ProductDetail extends Component {
           R$
           {price}
         </div>
+        <input type="text" data-testid="product-detail-evaluation" />
       </section>
     );
   }
