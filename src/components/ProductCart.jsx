@@ -5,7 +5,7 @@ class ProductCart extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { quantity: 0 };
+    this.state = { quantity: 1 };
   }
 
   plusQuantity() {
@@ -45,10 +45,10 @@ class ProductCart extends Component {
   render() {
     const { quantity } = this.state;
     const { products } = this.props;
-    const { title, price, thumbnail } = products;
+    const { product: { title, price, thumbnail, id } } = products;
     return (
       <div className="product-cart">
-        <img src={thumbnail} alt={title} height="90px" />
+        <img src={thumbnail} alt={id} height="90px" />
         <p
           className="product-cart-title"
           data-testid="shopping-cart-product-name"
